@@ -15,7 +15,7 @@ class Roat{
                 while(((b - a)/2) > eps){
                     c = ((b + a)/2);
                     if((f(c) == 0) || Math.Abs(f(c)) < eps){
-                        return c; //Найден корень с достаточной точностью
+                        return c; //Корень с хорошей точностью
                     }else if(f(a)*f(c) < 0){ 
                         b = c;
                     }else{
@@ -37,14 +37,25 @@ class Roat{
                 return (x, k);
             double dfx = (f(x + h) - fx) / h; // Численная производная
             if (Math.Abs(dfx) < 1e-12)
-                throw new InvalidOperationException("Производная близка к нулю решения нету");
+                throw new InvalidOperationException("За max интераций метод не сошелся");
             xPrev = x;
             x -= fx / dfx;
         }
     }
-    //public static double method_posledovatelnih_priblishenie(){
-        
-   // }
+     public static (double, int) method_posledovatelnih_priblishenie(Func<double, double> f, double eps = 1e-6){
+        Console.WriteLine("Введите максимальные интерации");
+        int maxIterations = Convert.ToInt32(Console.ReadLine());
+        double x = Convert.ToDouble(Console.ReadLine());
+        int iterations = 0;
+        while (iterations < maxIterations){
+            double xNew = f(x); // Новое приближение
+            if (Math.Abs(xNew - x) < eps) // Проверка на сходимость
+                return (xNew, iterations);
+            x = xNew;
+            iterations++;
+        }
+        throw new InvalidOperationException($"Не сошлись");
+    }
 }
 class Rezult{
      public static void Main(string[] args){
@@ -58,8 +69,9 @@ class Rezult{
             case 2:
                 Console.WriteLine(Roat.method_nuiton(f));
                 break;
-          //  case 3:
-            //    Console.WriteLine(Roat.method_posledovatelnih_priblishenie(f));
+            case 3:
+                Console.WriteLine(Roat.method_posledovatelnih_priblishenie(f));
+                break;
         }
     }
 }
