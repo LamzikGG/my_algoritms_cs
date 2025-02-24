@@ -1,0 +1,15 @@
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.AssemblyInfoInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.AssemblyInfo.cs
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.csproj.CoreCompileInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.sourcelink.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\bin\Debug\net9.0\worked_vector.exe
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\bin\Debug\net9.0\worked_vector.deps.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\bin\Debug\net9.0\worked_vector.runtimeconfig.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\bin\Debug\net9.0\worked_vector.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\bin\Debug\net9.0\worked_vector.pdb
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\refint\worked_vector.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.pdb
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\worked_vector.genruntimeconfig.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_vector\obj\Debug\net9.0\ref\worked_vector.dll
