@@ -13,3 +13,18 @@ C:\Users\caesarda\Desktop\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\refint\
 C:\Users\caesarda\Desktop\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.pdb
 C:\Users\caesarda\Desktop\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.genruntimeconfig.cache
 C:\Users\caesarda\Desktop\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\ref\worked_matrix.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\bin\Debug\net9.0\worked_matrix.exe
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\bin\Debug\net9.0\worked_matrix.deps.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\bin\Debug\net9.0\worked_matrix.runtimeconfig.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\bin\Debug\net9.0\worked_matrix.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\bin\Debug\net9.0\worked_matrix.pdb
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.AssemblyInfoInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.AssemblyInfo.cs
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.csproj.CoreCompileInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.sourcelink.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\refint\worked_matrix.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.pdb
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\worked_matrix.genruntimeconfig.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\worked_matrix\obj\Debug\net9.0\ref\worked_matrix.dll

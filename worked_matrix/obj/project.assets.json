@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\caesarda\\.nuget\\packages\\": {}
+    "C:\\Users\\steni\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caesarda\\Desktop\\my_algoritms_cs\\worked_matrix\\worked_matrix.csproj",
+      "projectUniqueName": "C:\\Users\\steni\\OneDrive\\Рабочий стол\\my_algoritms_cs\\worked_matrix\\worked_matrix.csproj",
       "projectName": "worked_matrix",
-      "projectPath": "C:\\Users\\caesarda\\Desktop\\my_algoritms_cs\\worked_matrix\\worked_matrix.csproj",
-      "packagesPath": "C:\\Users\\caesarda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caesarda\\Desktop\\my_algoritms_cs\\worked_matrix\\obj\\",
+      "projectPath": "C:\\Users\\steni\\OneDrive\\Рабочий стол\\my_algoritms_cs\\worked_matrix\\worked_matrix.csproj",
+      "packagesPath": "C:\\Users\\steni\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\steni\\OneDrive\\Рабочий стол\\my_algoritms_cs\\worked_matrix\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\caesarda\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\steni\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -44,7 +44,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
