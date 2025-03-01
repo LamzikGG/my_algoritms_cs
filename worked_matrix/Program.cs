@@ -1,234 +1,346 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Text;
+using System.Linq;
+using System.Numerics;
+using System.Reflection.Metadata;
+using System.Xml.Linq;
+using System.Collections.Immutable;
+using System.ComponentModel.Design;
+using ConsoleChMethod;
 
-class worked_matrix
-{
-    public static int[,] vvod_matrix()
+namespace ConsoleChMethod
+{ // Добавить методы матриц их 10
+   class Matrix
     {
-        Console.WriteLine("Введите ширину матрицы");
-        int shirina = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите длину матрицы");
-        int dlina = Convert.ToInt32(Console.ReadLine());
-        Random random = new Random();
-        int[,] matrix = new int[shirina, dlina];
-
-        for (int i = 0; i < shirina; i++)
+        protected int rows, columns;
+        protected double[,] data;
+        private const double Eps = 0.000001;
+        public Matrix(int r, int c)
         {
-            for (int j = 0; j < dlina; j++)
-            {
-                matrix[i, j] = random.Next(0, 10);
-            }
+            this.rows = r; this.columns = c;
+            data = new double[rows, columns];
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++) data[i, j] = 0;
         }
-
-        Console.WriteLine("Матрица:");
-        for (int i = 0; i < shirina; i++)
+        public Matrix(double[,] mm)
         {
-            for (int j = 0; j < dlina; j++)
-            {
-                Console.Write(matrix[i, j] + "\t");
-            }
-            Console.WriteLine();
+            this.rows = mm.GetLength(0); this.columns = mm.GetLength(1);
+            data = new double[rows, columns];
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++)
+                    data[i, j] = mm[i, j];
         }
-
-        return matrix;
-    }
-
-    public static void proizvedenie(int[,] matrix)
-    {
-        int shirina = matrix.GetLength(0);
-        int dlina = matrix.GetLength(1);
-
-        Console.WriteLine("Произведение элементов матрицы:");
-        int product = 1;
-        for (int i = 0; i < shirina; i++)
+        public Matrix(Matrix M)
         {
-            for (int j = 0; j < dlina; j++)
-            {
-                product *= matrix[i, j];
-            }
+            this.rows = M.rows; this.columns = M.columns;
+            data = new double[rows, columns];
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++)
+                    data[i, j] = M[i, j];
         }
-        Console.WriteLine(product);
-    }
+        public int Rows { get { return rows; } }
+        public int Columns { get { return columns; } }
 
-    public static void gaus(int[,] matrix)
-    {
-        int shirina = matrix.GetLength(0);
-        int dlina = matrix.GetLength(1);
-
-        Console.WriteLine("Матрица до преобразования:");
-        for (int i = 0; i < shirina; i++)
+        public double this[int i, int j]
         {
-            for (int j = 0; j < dlina; j++)
+            get
             {
-                Console.Write(matrix[i, j] + "\t");
-            }
-            Console.WriteLine();
-        }
-
-        // Приведение к ступенчатому виду
-        for (int i = 0; i < shirina; i++)
-        {
-            for (int j = i + 1; j < shirina; j++)
-            {
-                if (matrix[i, i] != 0)
+                if (i < 0 || j < 0 || i >= rows || j >= columns)
                 {
-                    double coeff = matrix[j, i] / (double)matrix[i, i];
-                    for (int k = 0; k < dlina; k++)
+                    // Console.WriteLine(" Индексы вышли за пределы матрицы ");
+                    return Double.NaN;
+                }
+                else
+                    return data[i, j];
+            }
+            set
+            {
+                if (i < 0 || j < 0 || i >= rows || j >= columns)
+                {
+                    //Console.WriteLine(" Индексы вышли за пределы матрицы ");
+                }
+                else
+                    data[i, j] = value;
+            }
+        }
+        public Vector GetRow(int r)
+        {
+            if (r >= 0 && r < rows)
+            {
+                Vector row = new Vector(columns);
+                for (int j = 0; j < columns; j++) row[j] = data[r, j];
+                return row;
+            }
+            return null;
+        }
+        public Vector GetColumn(int c)
+        {
+            if (c >= 0 && c < columns)
+            {
+                Vector column = new Vector(rows);
+                for (int i = 0; i < rows; i++) column[i] = data[i, c];
+                return column;
+            }
+            return null;
+        }
+        public bool SetRow(int index, Vector r)
+        {
+            if (index < 0 || index > rows) return false;
+            if (r.Size != columns) return false;
+            for (int k = 0; k < columns; k++) data[index, k] = r[k];
+            return true;
+        }
+        public bool SetColumn(int index, Vector c)
+        {
+            if (index < 0 || index > columns) return false;
+            if (c.Size != rows) return false;
+            for (int k = 0; k < rows; k++) data[k, index] = c[k];
+            return true;
+        }
+        public double Norma1()
+        {
+            double s = 0;
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++)
+                    s += data[i, j] * data[i, j];
+            return Math.Sqrt(s);
+        }
+        public double Norma2()
+        {
+            double max = 0, s = 0;
+            for (int i = 0; i < rows; i++)
+            {
+                s = 0;
+                for (int j = 0; j < columns; j++)
+                    s += Math.Abs(data[i, j]);
+                if (s > max) max = s;
+            }
+            return max;
+        }
+        public double Norma3()
+        {
+            double max = 0, s = 0;
+            for (int j = 0; j < columns; j++)
+            {
+                s = 0;
+                for (int i = 0; i < rows; i++)
+                    s += Math.Abs(data[i, j]);
+                if (s > max) max = s;
+            }
+            return max;
+        }
+        //умножение матрицы на вектор
+        public static Vector operator *(Matrix a, Vector b)
+        {
+            if (a.columns != b.Size) return null;
+            Vector r = new Vector(a.rows);
+            for (int i = 0; i < a.rows; i++)
+            {
+                r[i] = a.GetRow(i) * b;
+            }
+            return r;
+        }
+        //печать
+        public void Print()
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{data[i, j]} \t");             //t - горизонтальная табуляция
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+        }
+        public override string ToString()
+        {
+            string s = "{\n";
+            for (int i = 0; i < rows; i++)
+                s += GetRow(i).ToString() + "\n";
+            s += "}";
+            return @s;
+        }
+        //Транспонированние
+        public Matrix Transpose()
+        {
+            Matrix transposeMatrix = new Matrix(columns, rows);
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    transposeMatrix.data[j, i] = data[i, j];
+                }
+            }
+            return transposeMatrix;
+        }
+        
+        //Умножение матрицы на чило
+        public static Matrix MultByNum(Matrix m, double c)   //Умножаем матрицу на число
+        {
+            Matrix result = new Matrix(m.rows, m.columns);
+            for (int i = 0; i < m.rows; i++)
+            {
+                for (int j = 0; j < m.columns; j++)
+                {
+                    result[i, j] = m[i, j] * c;
+                }
+            }
+            return result;
+        }
+        public static Matrix operator *(Matrix m, double c)
+        {
+            return Matrix.MultByNum(m, c);
+        }
+
+        public static Matrix operator *(double c, Matrix m)
+        {
+            return Matrix.MultByNum(m, c);
+        }
+        //Умножение матриц
+        public static Matrix operator *(Matrix m1, Matrix m2)
+        {
+            if (m1.columns != m2.rows)
+            {
+                throw new Exception("Количество столбцов первой матрицы не равно количеству строк второй");
+            }
+            Matrix result = new Matrix(m1.rows, m2.columns);
+            for (int i = 0; i < m1.rows; i++)
+            {
+                for (int j = 0; j < m2.columns; j++)
+                {
+                    result[i, j] = 0;
+                    for (int k = 0; k < m1.columns; k++)
                     {
-                        matrix[j, k] -= (int)(coeff * matrix[i, k]);
+                        result[i, j] += m1[i, k] * m2[k, j];
                     }
                 }
             }
+            return result;
         }
-
-        Console.WriteLine("Матрица после преобразования:");
-        for (int i = 0; i < shirina; i++)
+       
+        //Сложение матриц
+        public static Matrix operator +(Matrix m1, Matrix m2)     //Сложение матриц
         {
-            for (int j = 0; j < dlina; j++)
+            if (m1.rows != m2.rows || m1.columns != m2.columns)
             {
-                Console.Write(matrix[i, j] + "\t");
+                throw new Exception("Матрицы не совпадают по размерности");
             }
-            Console.WriteLine();
+            Matrix result = new Matrix(m1.rows, m1.columns);
+
+            for (int i = 0; i < m1.rows; i++)
+            {
+                for (int j = 0; j < m2.columns; j++)
+                {
+                    result[i, j] = m1[i, j] + m2[i, j];
+                }
+            }
+            return result;
         }
-    }
-
-    public static void summa_and_vichetanie(int[,] matrix1, int[,] matrix2)
-    {
-        int shirina = matrix1.GetLength(0);
-        int dlina = matrix1.GetLength(1);
-
-        if (matrix2.GetLength(0) != shirina || matrix2.GetLength(1) != dlina)
+        //Вычитание матриц
+        public static Matrix operator -(Matrix m1, Matrix m2)     //Вычитание матриц
         {
-            Console.WriteLine("Матрицы должны быть одинакового размера!");
-            return;
+            if (m1.rows != m2.rows || m1.columns != m2.columns)
+            {
+                throw new Exception("Матрицы не совпадают по размерности");
+            }
+            Matrix result = new Matrix(m1.rows, m2.columns);
+
+            for (int i = 0; i < m1.rows; i++)
+            {
+                for (int j = 0; j < m2.columns; j++)
+                {
+                    result[i, j] = m1[i, j] - m2[i, j];
+                }
+            }
+            return result;
         }
-
-        int[,] sum = new int[shirina, dlina];
-        int[,] diff = new int[shirina, dlina];
-
-        for (int i = 0; i < shirina; i++)
+        public static Matrix operator -(Matrix m1)     //Отрицание матриц
         {
-            for (int j = 0; j < dlina; j++)
-            {
-                sum[i, j] = matrix1[i, j] + matrix2[i, j];
-                diff[i, j] = matrix1[i, j] - matrix2[i, j];
-            }
-        }
 
-        Console.WriteLine("Сумма матриц:");
-        for (int i = 0; i < shirina; i++)
+            Matrix result = new Matrix(m1.rows, m1.columns);
+
+            for (int i = 0; i < m1.rows; i++)
+            {
+                for (int j = 0; j < m1.columns; j++)
+                {
+                    result[i, j] = -m1[i, j];
+                }
+            }
+            return result;
+        }
+        public static Matrix EdMatrix(int size)
         {
-            for (int j = 0; j < dlina; j++)
+            Matrix tm = new Matrix(size, size);
+            for (int i = 0; i < size; i++)
             {
-                Console.Write(sum[i, j] + "\t");
+                for (int j = 0; j < size; j++)
+                    tm.data[i, j] = 0.0;
+                tm.data[i, i] = 1.0;
             }
-            Console.WriteLine();
+            return tm;
         }
-
-        Console.WriteLine("Разность матриц:");
-        for (int i = 0; i < shirina; i++){
-            for (int j = 0; j < dlina; j++)
+        public void SwapRows(int r1, int r2)
+        {
+            if (r1 < 0 || r2 < 0 || r1 >= rows || r2 >= rows || (r1 == r2)) return;
+            Vector v1 = GetRow(r1);
+            Vector v2 = GetRow(r2);
+            SetRow(r2, v1);
+            SetRow(r1, v2);
+        }
+        public void SwapColumns(int c1, int c2)
+        {
+            if (c1 < 0 || c2 < 0 || c1 >= columns || c2 >= columns || (c1 == c2)) return;
+            Vector v1 = GetColumn(c1);
+            Vector v2 = GetColumn(c2);
+            SetColumn(c2, v1);
+            SetColumn(c1, v2);
+        }
+              public static Vector Solve_LU_DOWN_Treug(Matrix a, Vector b)
+        {
+            int rows = a.rows; int columns = a.columns;
+            if (columns != rows || rows != b.Size) return null;
+            for (int i = 0; i < rows; i++)
             {
-                Console.Write(diff[i, j] + "\t");
+                if (a.data[i, i] == 0) return null;
+                for (int j = i + 1; j < rows; j++)
+                    if (Math.Abs(a.data[i, j] )> Eps) return null;
             }
-            Console.WriteLine();
+            Vector x = new Vector(rows);
+            x[0] = b[0] / a.data[0, 0];
+            for (int i = 1; i < rows; i++)
+            {
+                double s = 0;
+                for (int k = 0; k < i; k++)
+                    s += a.data[i, k] * x[k];
+                x[i] = (b[i] - s) / a.data[i, i];
+            }
+            return x;
+        }
+        public Matrix Copy()
+        {
+            Matrix r = new Matrix(rows, columns);
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++) r[i, j] = data[i, j];
+            return r;
+        }
+        public static void gaus(){
+            Matrix r = new Matrix(rows, columns);
+            for(int i = 0; i < rows; i++){
+                for(int j = 0; j < ConsoleChMethodlums; j++){
+                    
+                }
+            }
         }
     }
-}
-
-class vector{
-    public static int[] worked_vector(){
-        Console.WriteLine("Введите размер вектора:");
-        int size = Convert.ToInt32(Console.ReadLine());
-        int[] vector = new int[size];
-        Random random = new Random();
-        for (int i = 0; i < size; i++){
-            vector[i] = random.Next(0, 10);
-        }
-        Console.WriteLine("Вектор:");
-        for (int i = 0; i < size; i++){
-            Console.Write(vector[i] + " ");
-        }
-        Console.WriteLine();
-        return vector;
-    }
-
-    public static void skalarnoe_proizvedenie(int[] vector1, int[] vector2){
-        if (vector1.Length != vector2.Length){
-            Console.WriteLine("Векторы должны быть одинаковой длины!");
-            return;
-        }
-        int result = 0;
-        for (int i = 0; i < vector1.Length; i++){
-            result += vector1[i] * vector2[i];
-        }
-        Console.WriteLine("Скалярное произведение векторов: " + result);
-    }
-    public static void vectornoe_proizvedenie(int[] vector1, int[] vector2){
-        if (vector1.Length != 3 || vector2.Length != 3){
-            Console.WriteLine("Векторное произведение определено только для 3D векторов!");
-            return;
-        }
-        int[] result = new int[3];
-        result[0] = vector1[1] * vector2[2] - vector1[2] * vector2[1];
-        result[1] = vector1[2] * vector2[0] - vector1[0] * vector2[2];
-        result[2] = vector1[0] * vector2[1] - vector1[1] * vector2[0];
-        Console.WriteLine("Векторное произведение:");
-        for (int i = 0; i < 3; i++){
-            Console.Write(result[i] + " ");
-        }
-        Console.WriteLine();
-    }
+   
 }
 
 class Program{
-    public static void Main(){
-        Console.WriteLine("Выберите операцию:");
-        Console.WriteLine("1 - Метод Гаусса");
-        Console.WriteLine("2 - Произведение элементов матрицы");
-        Console.WriteLine("3 - Сложение и вычитание матриц");
-        Console.WriteLine("4 - Векторные операции");
-        int choice = Convert.ToInt32(Console.ReadLine());
-
-        switch (choice)
-        {
-            case 1:
-                int[,] matrix1 = worked_matrix.vvod_matrix();
-                worked_matrix.gaus(matrix1);
-                break;
-            case 2:
-                int[,] matrix2 = worked_matrix.vvod_matrix();
-                worked_matrix.proizvedenie(matrix2);
-                break;
-            case 3:
-                int[,] matrixA = worked_matrix.vvod_matrix();
-                int[,] matrixB = worked_matrix.vvod_matrix();
-                worked_matrix.summa_and_vichetanie(matrixA, matrixB);
-                break;
-            case 4:
-                Console.WriteLine("Первый вектор:");
-                int[] vector1 = vector.worked_vector();
-                Console.WriteLine("Второй вектор:");
-                int[] vector2 = vector.worked_vector();
-                Console.WriteLine("Выберите векторную операцию:");
-                Console.WriteLine("1 - Скалярное произведение");
-                Console.WriteLine("2 - Векторное произведение");
-                int vectorChoice = Convert.ToInt32(Console.ReadLine());
-                switch (vectorChoice)
-                {
-                    case 1:
-                        vector.skalarnoe_proizvedenie(vector1, vector2);
-                        break;
-                    case 2:
-                        vector.vectornoe_proizvedenie(vector1, vector2);
-                        break;
-                    default:
-                        Console.WriteLine("Неверный выбор");
-                        break;
-                }
-                break;
-            default:
-                Console.WriteLine("Неверный выбор");
-                break;
-        }
+    public static void Main(string[] args){
+        Console.Write(Matrix.gaus);
+        Console.Write(Matrix.EdMatrix);
     }
 }
