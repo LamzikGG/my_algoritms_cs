@@ -1,0 +1,5 @@
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\matrix_and_vector\obj\Debug\net9.0\matrix_and_vector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\matrix_and_vector\obj\Debug\net9.0\matrix_and_vector.AssemblyInfoInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\matrix_and_vector\obj\Debug\net9.0\matrix_and_vector.AssemblyInfo.cs
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\matrix_and_vector\obj\Debug\net9.0\matrix_and_vector.csproj.CoreCompileInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\matrix_and_vector\obj\Debug\net9.0\matrix_and_vector.sourcelink.json

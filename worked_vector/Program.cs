@@ -211,3 +211,5 @@ class Program
         Console.WriteLine("Случайный нормализованный вектор: " + randomVector);
     }
 }
+        }
+}

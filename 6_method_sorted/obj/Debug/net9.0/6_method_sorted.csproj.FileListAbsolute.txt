@@ -1,0 +1,15 @@
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\bin\Debug\net9.0\6_method_sorted.exe
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\bin\Debug\net9.0\6_method_sorted.deps.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\bin\Debug\net9.0\6_method_sorted.runtimeconfig.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\bin\Debug\net9.0\6_method_sorted.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\bin\Debug\net9.0\6_method_sorted.pdb
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.AssemblyInfoInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.AssemblyInfo.cs
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.csproj.CoreCompileInputs.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.sourcelink.json
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\refint\6_method_sorted.dll
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.pdb
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\6_method_sorted.genruntimeconfig.cache
+C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\6_method_sorted\obj\Debug\net9.0\ref\6_method_sorted.dll

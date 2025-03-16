@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("worked_matrix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa77d91d4c462e5f597fea8dd6fa04f3f29c9d1d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+076a1202992346b8a176fb2e255a05b37d4a3c47")]
 [assembly: System.Reflection.AssemblyProductAttribute("worked_matrix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("worked_matrix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
