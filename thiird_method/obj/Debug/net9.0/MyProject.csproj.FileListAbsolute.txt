@@ -28,3 +28,18 @@ C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\thiird_method\ob
 C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.pdb
 C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.genruntimeconfig.cache
 C:\Users\steni\OneDrive\Рабочий стол\my_algoritms_cs\thiird_method\obj\Debug\net9.0\ref\MyProject.dll
+C:\Users\caesarda\my_algoritms_cs\thiird_method\bin\Debug\net9.0\MyProject.exe
+C:\Users\caesarda\my_algoritms_cs\thiird_method\bin\Debug\net9.0\MyProject.deps.json
+C:\Users\caesarda\my_algoritms_cs\thiird_method\bin\Debug\net9.0\MyProject.runtimeconfig.json
+C:\Users\caesarda\my_algoritms_cs\thiird_method\bin\Debug\net9.0\MyProject.dll
+C:\Users\caesarda\my_algoritms_cs\thiird_method\bin\Debug\net9.0\MyProject.pdb
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.AssemblyInfoInputs.cache
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.AssemblyInfo.cs
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.csproj.CoreCompileInputs.cache
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.sourcelink.json
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.dll
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\refint\MyProject.dll
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.pdb
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\MyProject.genruntimeconfig.cache
+C:\Users\caesarda\my_algoritms_cs\thiird_method\obj\Debug\net9.0\ref\MyProject.dll

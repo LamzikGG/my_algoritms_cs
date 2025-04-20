@@ -1,0 +1,15 @@
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.AssemblyInfoInputs.cache
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.AssemblyInfo.cs
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.csproj.CoreCompileInputs.cache
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.sourcelink.json
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\bin\Debug\net9.0\kombination_method_mullera.exe
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\bin\Debug\net9.0\kombination_method_mullera.deps.json
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\bin\Debug\net9.0\kombination_method_mullera.runtimeconfig.json
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\bin\Debug\net9.0\kombination_method_mullera.dll
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\bin\Debug\net9.0\kombination_method_mullera.pdb
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.dll
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\refint\kombination_method_mullera.dll
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.pdb
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\kombination_method_mullera.genruntimeconfig.cache
+C:\Users\caesarda\my_algoritms_cs\kombination_method_mullera\obj\Debug\net9.0\ref\kombination_method_mullera.dll
