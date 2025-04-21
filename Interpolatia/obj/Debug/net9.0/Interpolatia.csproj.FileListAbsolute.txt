@@ -1,0 +1,15 @@
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.AssemblyInfoInputs.cache
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.AssemblyInfo.cs
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.csproj.CoreCompileInputs.cache
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.sourcelink.json
+C:\Users\steni\my_algoritms_cs\Interpolatia\bin\Debug\net9.0\Interpolatia.exe
+C:\Users\steni\my_algoritms_cs\Interpolatia\bin\Debug\net9.0\Interpolatia.deps.json
+C:\Users\steni\my_algoritms_cs\Interpolatia\bin\Debug\net9.0\Interpolatia.runtimeconfig.json
+C:\Users\steni\my_algoritms_cs\Interpolatia\bin\Debug\net9.0\Interpolatia.dll
+C:\Users\steni\my_algoritms_cs\Interpolatia\bin\Debug\net9.0\Interpolatia.pdb
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.dll
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\refint\Interpolatia.dll
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.pdb
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\Interpolatia.genruntimeconfig.cache
+C:\Users\steni\my_algoritms_cs\Interpolatia\obj\Debug\net9.0\ref\Interpolatia.dll
