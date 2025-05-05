@@ -9,7 +9,6 @@ public struct Vector2
     {
         return new Vector2
         {
-            // Исправлено: Добавлен вызов через InterpolationDemo
             X = InterpolationDemo.LinearLerp(a.X, b.X, t),
             Y = InterpolationDemo.LinearLerp(a.Y, b.Y, t)
         };
