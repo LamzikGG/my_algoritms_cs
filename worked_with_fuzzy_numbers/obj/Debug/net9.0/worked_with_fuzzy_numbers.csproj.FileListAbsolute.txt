@@ -1,0 +1,15 @@
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.AssemblyInfoInputs.cache
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.AssemblyInfo.cs
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.csproj.CoreCompileInputs.cache
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.sourcelink.json
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\bin\Debug\net9.0\worked_with_fuzzy_numbers.exe
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\bin\Debug\net9.0\worked_with_fuzzy_numbers.deps.json
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\bin\Debug\net9.0\worked_with_fuzzy_numbers.runtimeconfig.json
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\bin\Debug\net9.0\worked_with_fuzzy_numbers.dll
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\bin\Debug\net9.0\worked_with_fuzzy_numbers.pdb
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.dll
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\refint\worked_with_fuzzy_numbers.dll
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.pdb
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\worked_with_fuzzy_numbers.genruntimeconfig.cache
+C:\Users\steni\my_algoritms_cs\worked_with_fuzzy_numbers\obj\Debug\net9.0\ref\worked_with_fuzzy_numbers.dll
