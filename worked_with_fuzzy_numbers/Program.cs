@@ -2,9 +2,9 @@
 
 class FuzzyNumber
 {
-    public double A { get; }
-    public double C { get; } 
-    public double B { get; }
+    public double A { get; } //Левая точка 
+    public double C { get; } //Центральная точка 
+    public double B { get; } // Правая точка
 
     public FuzzyNumber(double a, double c, double b)
     {
@@ -27,9 +27,9 @@ class FuzzyNumber
 
     public static FuzzyNumber operator -(FuzzyNumber num1, FuzzyNumber num2)
     {
-        double newA = num1.A - num2.B;
+        double newA = num1.A - num2.A;
         double newC = num1.C - num2.C;
-        double newB = num1.B - num2.A;
+        double newB = num1.B - num2.B;
         
         return new FuzzyNumber(newA, newC, newB);
     }
@@ -51,10 +51,7 @@ class FuzzyNumber
     }
 
     public static FuzzyNumber operator /(FuzzyNumber num1, FuzzyNumber num2)
-    {
-        if (Math.Abs(num2.C) < double.Epsilon)
-            throw new DivideByZeroException("Деление на ноль!");
-            
+    {       
         double[] quotients = {
             num1.A / num2.A,
             num1.A / num2.B,
