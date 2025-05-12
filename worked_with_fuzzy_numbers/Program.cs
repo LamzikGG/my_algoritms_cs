@@ -6,6 +6,9 @@ class FuzzyNumber
     public double C { get; } //Центральная точка 
     public double B { get; } // Правая точка
 
+    public double left {get;} // промежуток между a и c 
+    public double right{get;} // промежуток меду c и b
+
     public FuzzyNumber(double a, double c, double b)
     {
         A = Math.Min(Math.Min(a, c), b);
@@ -67,6 +70,7 @@ class FuzzyNumber
     }
 
     public override string ToString() => $"{A}, {B}, {C}";
+    public override string ToString() => $"{left}, {right}";
 }
 
 class Program
