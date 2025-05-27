@@ -1,96 +1,108 @@
 ﻿using System;
 
-class FuzzyNumber
+// Определение класса FuzzyNumber
+public class FuzzyNumber
 {
-    public double Left { get; }   // a
-    public double Centre { get; } // c
-    public double Right { get; }  // b
+    public double Left { get; }   // нижняя граница (минимально возможное значение),
+    public double Centre { get; } // центральное значение (ядро, наиболее вероятное значение),
+    public double Right { get; }  // верхняя граница (максимально возможное значение).
 
-    public FuzzyNumber(double l, double c, double r)
+    // Конструктор
+    public FuzzyNumber(double left, double centre, double right)
     {
-    //    if (r > c || c > r) Условие исправить
+        if (left > centre || centre > right)
             throw new ArgumentException("Некорректные значения: необходимо соблюдать условие a ≤ c ≤ b");
 
-        Left = l;
-        Centre = c; // ИСпарвить
-        Right = r;
+        Left = left;
+        Centre = centre;
+        Right = right;
     }
 
-    public static FuzzyNumber operator +(FuzzyNumber num1, FuzzyNumber num2) // Оператор Суммы
+    // Реализация оператора +
+    public static FuzzyNumber operator +(FuzzyNumber num1, FuzzyNumber num2)
     {
         return new FuzzyNumber(
             num1.Left + num2.Left,
             num1.Centre + num2.Centre,
             num1.Right + num2.Right
-        );
+            );
     }
 
-    public static FuzzyNumber operator -(FuzzyNumber num1, FuzzyNumber num2) // Оператор разности
+    // Реализация оператора -
+    public static FuzzyNumber operator -(FuzzyNumber num1, FuzzyNumber num2)
     {
         return new FuzzyNumber(
-            num1.Left - num2.Rig, // left - left
+            num1.Left - num2.Right,
             num1.Centre - num2.Centre,
             num1.Right - num2.Left
-        );
+            );
     }
-я
-    public static FuzzyNumber operator *(FuzzyNumber num1, FuzzyNumber num2) // Оператор умножения
+
+    // Реализация оператора *
+    public static FuzzyNumber operator *(FuzzyNumber num1, FuzzyNumber num2)
     {
-        double[] products = {
+        //принцип обработки не определенности в нечетких множествах 
+        double[] products =
+        {
             num1.Left * num2.Left,
             num1.Left * num2.Right,
             num1.Right * num2.Left,
             num1.Right * num2.Right
         };
 
-        double newA = products.Min();
-        double newB = products.Max();
-        double newC = num1.Centre * num2.Centre;
+        double newA = products.Min();  // Мин. произведение
+        double newB = products.Max();  // Макс. произведение
+        double newC = num1.Centre * num2.Centre;  // Произведение центральных значений
 
         return new FuzzyNumber(newA, newC, newB);
     }
 
-    public static FuzzyNumber operator /(FuzzyNumber num1, FuzzyNumber num2) // Оператор деления с обработкой ошибок с делением на 0
+    // Реализация оператора /
+    public static FuzzyNumber operator /(FuzzyNumber num1, FuzzyNumber num2)
     {
-        if (num2.Left <= 0 && num2.Right >= 0)
-            throw new DivideByZeroException("Деление на ноль (интервал делителя содержит 0)");
+        if ((num2.Left <= 0 && num2.Right >= 0))
+            throw new DivideByZeroException("Делитель содержит ноль");
 
-        double[] quotients = {
-            num1.Left / num2.Right, // left 1 на left 2
+        //принцип обработки не определенности в нечетких множествах 
+        double[] quotients =
+        {
             num1.Left / num2.Left,
-            num1.Right / num2.Right,
-            num1.Right / num2.Left
+            num1.Left / num2.Right,
+            num1.Right / num2.Left,
+            num1.Right / num2.Right
         };
 
-        double newA = quotients.Min();
-        double newB = quotients.Max();
-        double newC = num1.Centre / num2.Centre;
+        double newA = quotients.Min();  // Мин. частное
+        double newB = quotients.Max();  // Макс. частное
+        double newC = num1.Centre / num2.Centre;  // Частное центральных значений
 
         return new FuzzyNumber(newA, newC, newB);
     }
 
+    // Переопределение метода ToString() для красивого отображения
     public override string ToString()
     {
         return $"({Left}, {Centre}, {Right})";
     }
 }
 
+// Основной класс программы
 class Program
 {
+    // Функция для ввода fuzzy числа
     static FuzzyNumber InputFuzzyNumber()
     {
-        Console.WriteLine("Введите три числа: левую сторону, центр и правую сторону (через пробел)");
         while (true)
         {
             try
             {
                 string[] input = Console.ReadLine().Split();
                 if (input.Length != 3)
-                    throw new FormatException("Нужно ввести ровно 3 числа");
+                    throw new FormatException("Необходимо ввести ровно 3 числа");
 
-                double a = double.Parse(input[0]);
-                double c = double.Parse(input[1]);
-                double b = double.Parse(input[2]);
+                double a = double.Parse(input[0]); // Нижняя граница
+                double c = double.Parse(input[1]); // Центральное значение
+                double b = double.Parse(input[2]); // Верхняя граница
 
                 return new FuzzyNumber(a, c, b);
             }
@@ -102,6 +114,10 @@ class Program
             {
                 Console.WriteLine($"Ошибка значений: {ae.Message}");
             }
+            catch (DivideByZeroException de)
+            {
+                Console.WriteLine($"Ошибка: {de.Message}");
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Произошла ошибка: {ex.Message}");
@@ -111,13 +127,10 @@ class Program
         }
     }
 
+    // Основная точка входа
     static void Main()
     {
-        Console.WriteLine("Выберите операцию:");
-        Console.WriteLine("1. Сложение");
-        Console.WriteLine("2. Вычитание");
-        Console.WriteLine("3. Умножение");
-        Console.WriteLine("4. Деление");
+        Console.WriteLine("Выберите операцию:\n1. Сложение\n2. Вычитание\n3. Умножение\n4. Деление");
 
         int choice;
         do
@@ -151,4 +164,4 @@ class Program
             Console.WriteLine($"Ошибка: {ex.Message}");
         }
     }
-}
+} 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("worked_with_fuzzy_numbers")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50c9abeede4e2d951d31fd50a1123bee6b842529")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c95ce3ceb25917a352765d58d643b543534d82dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("worked_with_fuzzy_numbers")]
 [assembly: System.Reflection.AssemblyTitleAttribute("worked_with_fuzzy_numbers")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
