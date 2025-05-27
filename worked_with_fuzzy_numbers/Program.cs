@@ -2,148 +2,148 @@
 
 class FuzzyNumber
 {
-    public double A { get; } //Левая точка 
-    public double C { get; } //Центральная точка 
-    public double B { get; } // Правая точка
+    public double Left { get; }   // a
+    public double Centre { get; } // c
+    public double Right { get; }  // b
 
-    public double left {get;} // промежуток между a и c 
-    public double right{get;} // промежуток меду c и b
-
-    public FuzzyNumber(double a, double c, double b)
+    public FuzzyNumber(double l, double c, double r)
     {
-        A = Math.Min(Math.Min(a, c), b);
-        B = Math.Max(Math.Max(a, c), b);
-        C = a + c + b - A - B; 
-        
-        if (A > C || C > B)
-            C = (A + B) / 2;  
+    //    if (r > c || c > r) Условие исправить
+            throw new ArgumentException("Некорректные значения: необходимо соблюдать условие a ≤ c ≤ b");
+
+        Left = l;
+        Centre = c; // ИСпарвить
+        Right = r;
     }
 
-    public static FuzzyNumber operator +(FuzzyNumber num1, FuzzyNumber num2)
+    public static FuzzyNumber operator +(FuzzyNumber num1, FuzzyNumber num2) // Оператор Суммы
     {
-        double newA = num1.A + num2.A;
-        double newC = num1.C + num2.C;
-        double newB = num1.B + num2.B;
-        
-        return new FuzzyNumber(newA, newC, newB);
+        return new FuzzyNumber(
+            num1.Left + num2.Left,
+            num1.Centre + num2.Centre,
+            num1.Right + num2.Right
+        );
     }
 
-    public static FuzzyNumber operator -(FuzzyNumber num1, FuzzyNumber num2)
+    public static FuzzyNumber operator -(FuzzyNumber num1, FuzzyNumber num2) // Оператор разности
     {
-        double newA = num1.A - num2.A;
-        double newC = num1.C - num2.C;
-        double newB = num1.B - num2.B;
-        
-        return new FuzzyNumber(newA, newC, newB);
+        return new FuzzyNumber(
+            num1.Left - num2.Rig, // left - left
+            num1.Centre - num2.Centre,
+            num1.Right - num2.Left
+        );
     }
-
-    public static FuzzyNumber operator *(FuzzyNumber num1, FuzzyNumber num2)
+я
+    public static FuzzyNumber operator *(FuzzyNumber num1, FuzzyNumber num2) // Оператор умножения
     {
         double[] products = {
-            num1.A * num2.A,
-            num1.A * num2.B,
-            num1.B * num2.A,
-            num1.B * num2.B
+            num1.Left * num2.Left,
+            num1.Left * num2.Right,
+            num1.Right * num2.Left,
+            num1.Right * num2.Right
         };
-        
+
         double newA = products.Min();
         double newB = products.Max();
-        double newC = num1.C * num2.C;
-        
+        double newC = num1.Centre * num2.Centre;
+
         return new FuzzyNumber(newA, newC, newB);
     }
 
-    public static FuzzyNumber operator /(FuzzyNumber num1, FuzzyNumber num2)
-    {       
+    public static FuzzyNumber operator /(FuzzyNumber num1, FuzzyNumber num2) // Оператор деления с обработкой ошибок с делением на 0
+    {
+        if (num2.Left <= 0 && num2.Right >= 0)
+            throw new DivideByZeroException("Деление на ноль (интервал делителя содержит 0)");
+
         double[] quotients = {
-            num1.A / num2.A,
-            num1.A / num2.B,
-            num1.B / num2.A,
-            num1.B / num2.B
+            num1.Left / num2.Right, // left 1 на left 2
+            num1.Left / num2.Left,
+            num1.Right / num2.Right,
+            num1.Right / num2.Left
         };
-        
+
         double newA = quotients.Min();
         double newB = quotients.Max();
-        double newC = num1.C / num2.C;
-        
+        double newC = num1.Centre / num2.Centre;
+
         return new FuzzyNumber(newA, newC, newB);
     }
 
-    public override string ToString() => $"{A}, {B}, {C}";
-    public override string ToString() => $"{left}, {right}";
+    public override string ToString()
+    {
+        return $"({Left}, {Centre}, {Right})";
+    }
 }
 
 class Program
 {
     static FuzzyNumber InputFuzzyNumber()
     {
-        Console.WriteLine("Введите a, c, b через пробел:");
+        Console.WriteLine("Введите три числа: левую сторону, центр и правую сторону (через пробел)");
         while (true)
         {
             try
             {
                 string[] input = Console.ReadLine().Split();
                 if (input.Length != 3)
-                    throw new Exception("Нужно ввести ровно 3 числа");
-                
+                    throw new FormatException("Нужно ввести ровно 3 числа");
+
                 double a = double.Parse(input[0]);
                 double c = double.Parse(input[1]);
                 double b = double.Parse(input[2]);
-                
+
                 return new FuzzyNumber(a, c, b);
+            }
+            catch (FormatException fe)
+            {
+                Console.WriteLine($"Ошибка формата: {fe.Message}");
+            }
+            catch (ArgumentException ae)
+            {
+                Console.WriteLine($"Ошибка значений: {ae.Message}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка ввода: {ex.Message}");
+                Console.WriteLine($"Произошла ошибка: {ex.Message}");
             }
+
+            Console.Write("Попробуйте снова: ");
         }
     }
 
     static void Main()
     {
+        Console.WriteLine("Выберите операцию:");
         Console.WriteLine("1. Сложение");
         Console.WriteLine("2. Вычитание");
         Console.WriteLine("3. Умножение");
         Console.WriteLine("4. Деление");
-        
+
         int choice;
-        while (true)
+        do
         {
-            Console.Write("Выберите операцию (1-4): ");
-            if (int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= 4)
-                break;
-            Console.WriteLine("Ошибка: введите число от 1 до 4");
-        }
+            Console.Write("Введите номер операции (1–4): ");
+        } while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 4);
 
         try
         {
             Console.WriteLine("\nПервое число:");
-            FuzzyNumber num1 = InputFuzzyNumber();
+            var num1 = InputFuzzyNumber();
             Console.WriteLine($"Введено: {num1}");
 
             Console.WriteLine("\nВторое число:");
-            FuzzyNumber num2 = InputFuzzyNumber();
+            var num2 = InputFuzzyNumber();
             Console.WriteLine($"Введено: {num2}");
 
-            FuzzyNumber result;
-            switch (choice)
+            FuzzyNumber result = choice switch
             {
-                case 1:
-                    result = num1 + num2;
-                    break;
-                case 2:
-                    result = num1 - num2;
-                    break;
-                case 3:
-                    result = num1 * num2;
-                    break;
-                case 4:
-                    result = num1 / num2;
-                    break;
-                default:
-                    throw new InvalidOperationException("Неизвестная операция");
-            }
-            
+                1 => num1 + num2,
+                2 => num1 - num2,
+                3 => num1 * num2,
+                4 => num1 / num2,
+                _ => throw new InvalidOperationException("Неизвестная операция")
+            };
+
             Console.WriteLine($"\nРезультат: {result}");
         }
         catch (Exception ex)

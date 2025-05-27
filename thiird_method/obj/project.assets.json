@@ -8,23 +8,23 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\caesarda\\.nuget\\packages\\": {},
+    "C:\\Users\\steni\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caesarda\\my_algoritms_cs\\thiird_method\\MyProject.csproj",
+      "projectUniqueName": "C:\\Users\\steni\\my_algoritms_cs\\thiird_method\\MyProject.csproj",
       "projectName": "MyProject",
-      "projectPath": "C:\\Users\\caesarda\\my_algoritms_cs\\thiird_method\\MyProject.csproj",
-      "packagesPath": "C:\\Users\\caesarda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caesarda\\my_algoritms_cs\\thiird_method\\obj\\",
+      "projectPath": "C:\\Users\\steni\\my_algoritms_cs\\thiird_method\\MyProject.csproj",
+      "packagesPath": "C:\\Users\\steni\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\steni\\my_algoritms_cs\\thiird_method\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\caesarda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\steni\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -51,7 +51,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -72,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
